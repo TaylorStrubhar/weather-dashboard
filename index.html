@@ -5,18 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-    crossorigin="anonymous"
-    />
+    <link rel="weather api" href="https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely&appid=2b1131d7b23faa62fd4da013c15d11ec" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <title>Weather Dashboard</title>
 </head>
-<body>
+<body class="col flex-column min-100-vh">
 <header class="bg-primary p-2 text-white bg-opacity-75 bg-gradient">
     <h1 class="text-center">Weather Dashboard</h1>
 </header>
-    
+
+<main class="row">
+    <div class="col-4 col-md-3">
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search By City</h3>
+        <form id="user-form" class="card-body">
+          <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search History</h3>
+        <div id="recent-buttons" class="card-body">
+          <button data-location="mostRecentSearch" class="btn"></button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+        <div class="col-8 col-md-6 card">
+            <h2 class="subtitle">Current Forecast for <span id="city-search-name"></span></h2>
+            <div id="current-container" class="list-group">
+
+            </div>
+        </div>
+        <div class="col-8 col-md-6 card">
+            <h3 class="subtitle">5-Day Forecast</h3>
+            <div id="5-day-container" class="card-row">
+                <div id="day-1"></div>
+                <div id="day-2"></div>
+                <div id="day-3"></div>
+                <div id="day-4"></div>
+                <div id="day-5"></div>
+
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="./assets/js/script.js"></script>
 </body>
 </html>
