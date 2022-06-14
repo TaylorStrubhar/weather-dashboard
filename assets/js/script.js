@@ -37,7 +37,7 @@ var formSubmitHandler = function (event) {
 // retreives lat lon
 var getLatLon = function (city) {
     // format the geocoding api url
-    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=2b1131d7b23faa62fd4da013c15d11ec";
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=2b1131d7b23faa62fd4da013c15d11ec";
 
     fetch(apiUrl).then(function (response) {
         // console.log(response);
